@@ -4,10 +4,32 @@
         "base_url": "https://trade.multibank.io/"
     },
     "navigation": {
+        "links": [
+            {
+                "name": "Dashboard",
+                "selector": "a[href='/']",
+                "expected_url": "/"
+            },
+            {
+                "name": "Markets",
+                "selector": "a[href='/markets']",
+                "expected_url": "/markets"
+            },
+            {
+                "name": "Log In",
+                "selector": "a[href='/login']",
+                "expected_url": "/login"
+            },
+            {
+                "name": "Sign Up",
+                "selector": "a[href='/register']",
+                "expected_url": "/register"
+            }
+        ],
         "menu_items": [
             {
                 "name": "Dashboard", 
-                "selector": "a.style_menu-item__SLdA4.style_menu-item--active__EF4Pb",
+                "selector": "a[href='/']",
                 "dropdown": []
             },
             {
@@ -18,22 +40,43 @@
             {
                 "name": "Trade", 
                 "selector": "#trade-header-option-open-button",
-                "dropdown": ["Spot", "Derivatives", "Instant Buy", "Panic Sell", "Convert"]
+                "dropdown": [
+                    {"name": "Convert", "expected_url": "/trade/convert"},
+                    {"name": "Spot", "expected_url": "/trade/BTC_USD"},
+                    {"name": "Derivatives", "expected_url": "/derivatives/BTCUST"},
+                    {"name": "Instant Buy", "expected_url": "/"},
+                    {"name": "Panic Sell", "expected_url": "/"}
+                ]
             },
             {
                 "name": "Features", 
                 "selector": "#features-header-option-open-button",
-                "dropdown": ["Spot Exchange", "Institutional", "Buy & Sell"]
+                "dropdown": [
+                    {"name": "Spot Exchange", "expected_url": "https://multibank.io/features/spot-exchange"},
+                    {"name": "Institutional", "expected_url": "https://multibank.io/features/institutional"},
+                    {"name": "Buy & Sell", "expected_url": "https://multibank.io/features/instant-buy"}
+                ]
             },
             {
                 "name": "About Us", 
                 "selector": "#about-header-option-open-button",
-                "dropdown": ["Why Multibank?", "Global Presence", "Management", "Awards", "Sponsorship", "Blog", "Milestones"]
+                "dropdown": [
+                    {"name": "Why Multibank?", "expected_url": "https://multibank.io/about/why-multibank"},
+                    {"name": "Global Presence", "expected_url": "https://multibank.io/about/global-presence"},
+                    {"name": "Management", "expected_url": "https://multibank.io/about/management"},
+                    {"name": "Awards", "expected_url": "https://multibank.io/about/awards"},
+                    {"name": "Sponsorship", "expected_url": "https://multibank.io/about/sponsorship"},
+                    {"name": "Blog", "expected_url": "https://multibank.io/about/blog"},
+                    {"name": "Milestones", "expected_url": "https://multibank.io/about/milestones"}
+                ]
             },
             {
                 "name": "Support", 
                 "selector": "#support-header-option-open-button",
-                "dropdown": ["Contact Us", "FAQs"]
+                "dropdown": [
+                    {"name": "Contact Us", "expected_url": "https://multibank.io/support/contact-us"},
+                    {"name": "FAQs", "expected_url": "https://multibank.io/support/faq"}
+                ]
             }
         ]
     }

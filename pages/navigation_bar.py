@@ -28,7 +28,9 @@ class NavigationBar(BasePage):
                 self.hover(item["selector"])
                 
                 for sub_item in item["dropdown"]:
-                    self.assert_element(f"//*[contains(text(), '{sub_item}')]")
+                    # Handle both simple strings (legacy) and detailed objects
+                    item_text = sub_item["name"] if isinstance(sub_item, dict) else sub_item
+                    self.assert_element(f"//*[contains(text(), '{item_text}')]")
                 
 
     def navigate_to(self, menu_name):
