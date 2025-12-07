@@ -1,0 +1,40 @@
+
+{
+    "urls": {
+        "base_url": "https://trade.multibank.io/"
+    },
+    "navigation": {
+        "menu_items": [
+            {
+                "name": "Dashboard", 
+                "selector": "a.style_menu-item__SLdA4.style_menu-item--active__EF4Pb",
+                "dropdown": []
+            },
+            {
+                "name": "Markets", 
+                "selector": "a[href='/markets']",
+                "dropdown": []
+            },
+            {
+                "name": "Trade", 
+                "selector": "#trade-header-option-open-button",
+                "dropdown": ["Spot", "Derivatives", "Instant Buy", "Panic Sell", "Convert"]
+            },
+            {
+                "name": "Features", 
+                "selector": "#features-header-option-open-button",
+                "dropdown": ["Spot Exchange", "Institutional", "Buy & Sell"]
+            },
+            {
+                "name": "About Us", 
+                "selector": "#about-header-option-open-button",
+                "dropdown": ["Why Multibank?", "Global Presence", "Management", "Awards", "Sponsorship", "Blog", "Milestones"]
+            },
+            {
+                "name": "Support", 
+                "selector": "#support-header-option-open-button",
+                "dropdown": ["Contact Us", "FAQs"]
+            }
+        ]
+    }
+}
