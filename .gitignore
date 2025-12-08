@@ -12,3 +12,4 @@ wheels/
 # Test Results
 *.html
 .pytest_cache
+downloaded_files
