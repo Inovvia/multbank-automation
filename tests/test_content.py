@@ -85,3 +85,12 @@ class TestContent(BaseCase):
         
         # Check established section
         self.content.verify_established_section()
+        
+        # Check regulations section
+        self.content.verify_regulations_section()
+        
+        # Check crypto regulations section
+        self.content.verify_crypto_regulations_section()
+        
+        # Check start trading now section
+        self.content.verify_start_trading_now_section()

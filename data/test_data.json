@@ -194,7 +194,46 @@
                     "description": "We provide one of the highest levels of leverage in the market, helping traders to multiply their profits."
                 }
 
-            ]
+            ],
+            "regulations": {
+                "selector": ".regulations_tabs-regulations-section__wA4cw",
+                "card_selector": ".regulations_card-div__yo3qm",
+                "title_selector": ".regulations_card-content___e22M h1",
+                "description_selector": ".regulations_card-content___e22M p",
+                "button_selector": ".regulations_card-content___e22M button",
+                "asic_mex_exchange": {
+                    "title": "ASIC MEX Exchange",
+                    "description": "MEX Digital Pty Ltd, with Australian company number (ACN) 645 164 209, is authorized and regulated by the Australian Securities and Investment Commission (\"ASIC\").",
+                    "button_text": "View License"
+                }
+            },
+            "crypto_regulations": {
+                "selector": ".regulations_crypto-regulations-section__93okU",
+                "offer_card_selector": ".regulations_offer-card-div__5ot5m",
+                "image_selector": ".regulations_dbBackground__04QaE",
+                "content_selector": ".regulations_offer-card-content__YM2C5",
+                "subtitle_selector": ".regulations_offer-card-content__YM2C5 h1:first-child",
+                "title_selector": ".regulations_dbTitle__9yq9v",
+                "deep_pool_liquidity": {
+                    "subtitle": "DEEP POOL OF LIQUIDITY",
+                    "title": "MultiBank io offers deep liquidity ensuring the best prices on big orders."
+                }
+            },
+            "start_trading_now": {
+                "selector": ".StartTradingNow_startTradingNowContainer__V5abe",
+                "wrapper_selector": ".StartTradingNow_startTradingNowWrapper__jsdtW",
+                "content_selector": ".StartTradingNow_startTradingNowContent__F3j8E",
+                "title_selector": ".StartTradingNow_startTradingTitle__ySrkz",
+                "description_selector": ".StartTradingNow_startTradingDescription__e_Xv7",
+                "button_selector": ".StartTradingNow_startTradingNowContent__F3j8E button",
+                "link_selector": ".StartTradingNow_startTradingNowContent__F3j8E a",
+                "content": {
+                    "title": "Start Trading Now",
+                    "description": "Join the biggest regulated crypto exchange on the market",
+                    "button_text": "Explore our platform",
+                    "button_href": "https://trade.multibank.io/trade/BTC_USD"
+                }
+            }
 
         },
         "banners": {

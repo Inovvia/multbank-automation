@@ -50,6 +50,30 @@ class Content(BasePage):
         self.ESTABLISHED_STATISTIC_CARD = self.data["content"]["why_multibank"]["established_section"]["statistic_card_selector"]
         self.ESTABLISHED_STATISTIC_NUMBER = self.data["content"]["why_multibank"]["established_section"]["statistic_number_selector"]
         self.ESTABLISHED_STATISTIC_LABEL = self.data["content"]["why_multibank"]["established_section"]["statistic_label_selector"]
+        
+        # Regulations section selectors
+        self.REGULATIONS_SECTION = self.data["content"]["why_multibank"]["regulations"]["selector"]
+        self.REGULATIONS_CARD = self.data["content"]["why_multibank"]["regulations"]["card_selector"]
+        self.REGULATIONS_TITLE = self.data["content"]["why_multibank"]["regulations"]["title_selector"]
+        self.REGULATIONS_DESCRIPTION = self.data["content"]["why_multibank"]["regulations"]["description_selector"]
+        self.REGULATIONS_BUTTON = self.data["content"]["why_multibank"]["regulations"]["button_selector"]
+        
+        # Crypto regulations section selectors
+        self.CRYPTO_REGULATIONS_SECTION = self.data["content"]["why_multibank"]["crypto_regulations"]["selector"]
+        self.CRYPTO_OFFER_CARD = self.data["content"]["why_multibank"]["crypto_regulations"]["offer_card_selector"]
+        self.CRYPTO_IMAGE = self.data["content"]["why_multibank"]["crypto_regulations"]["image_selector"]
+        self.CRYPTO_CONTENT = self.data["content"]["why_multibank"]["crypto_regulations"]["content_selector"]
+        self.CRYPTO_SUBTITLE = self.data["content"]["why_multibank"]["crypto_regulations"]["subtitle_selector"]
+        self.CRYPTO_TITLE = self.data["content"]["why_multibank"]["crypto_regulations"]["title_selector"]
+        
+        # Start trading now section selectors
+        self.START_TRADING_CONTAINER = self.data["content"]["why_multibank"]["start_trading_now"]["selector"]
+        self.START_TRADING_WRAPPER = self.data["content"]["why_multibank"]["start_trading_now"]["wrapper_selector"]
+        self.START_TRADING_CONTENT = self.data["content"]["why_multibank"]["start_trading_now"]["content_selector"]
+        self.START_TRADING_TITLE = self.data["content"]["why_multibank"]["start_trading_now"]["title_selector"]
+        self.START_TRADING_DESCRIPTION = self.data["content"]["why_multibank"]["start_trading_now"]["description_selector"]
+        self.START_TRADING_BUTTON = self.data["content"]["why_multibank"]["start_trading_now"]["button_selector"]
+        self.START_TRADING_LINK = self.data["content"]["why_multibank"]["start_trading_now"]["link_selector"]
     
 
 
@@ -243,3 +267,91 @@ class Content(BasePage):
                 # Verify label within card
                 label_element = card.find_element("css selector", self.ESTABLISHED_STATISTIC_LABEL)
                 assert statistic["label"] in label_element.text, f"Expected label '{statistic['label']}' not found in '{label_element.text}'"
+    
+    def verify_regulations_section(self):
+        """Verifies the regulations section contains ASIC MEX Exchange content."""
+        asic_mex_data = self.data["content"]["why_multibank"]["regulations"]["asic_mex_exchange"]
+        
+        # Verify regulations section exists
+        self.assert_element(self.REGULATIONS_SECTION)
+        
+        # Get all regulation cards
+        cards = self.find_elements(self.REGULATIONS_CARD)
+        assert len(cards) > 0, "No regulation cards found"
+        
+        # Find ASIC MEX Exchange card
+        asic_card_found = False
+        for card in cards:
+            try:
+                # Check title
+                title_element = card.find_element("css selector", self.REGULATIONS_TITLE)
+                if asic_mex_data["title"] in title_element.text:
+                    asic_card_found = True
+                    
+                    # Verify description
+                    desc_element = card.find_element("css selector", self.REGULATIONS_DESCRIPTION)
+                    assert asic_mex_data["description"] in desc_element.text, f"Expected description '{asic_mex_data['description']}' not found in '{desc_element.text}'"
+                    
+                    # Verify button
+                    button_element = card.find_element("css selector", self.REGULATIONS_BUTTON)
+                    assert asic_mex_data["button_text"] in button_element.text, f"Expected button text '{asic_mex_data['button_text']}' not found in '{button_element.text}'"
+                    
+                    break
+            except:
+                continue
+        
+        assert asic_card_found, "ASIC MEX Exchange card not found in regulations section"
+    
+    def verify_crypto_regulations_section(self):
+        """Verifies the crypto regulations section contains deep pool liquidity content."""
+        deep_pool_data = self.data["content"]["why_multibank"]["crypto_regulations"]["deep_pool_liquidity"]
+        
+        # Verify crypto regulations section exists
+        self.assert_element(self.CRYPTO_REGULATIONS_SECTION)
+        
+        # Verify offer card exists
+        self.assert_element(self.CRYPTO_OFFER_CARD)
+        
+        # Verify image exists
+        self.assert_element(self.CRYPTO_IMAGE)
+        
+        # Verify content exists
+        self.assert_element(self.CRYPTO_CONTENT)
+        
+        # Verify subtitle
+        subtitle_element = self.sb.find_element(self.CRYPTO_SUBTITLE)
+        assert deep_pool_data["subtitle"] in subtitle_element.text, f"Expected subtitle '{deep_pool_data['subtitle']}' not found in '{subtitle_element.text}'"
+        
+        # Verify title
+        title_element = self.sb.find_element(self.CRYPTO_TITLE)
+        assert deep_pool_data["title"] in title_element.text, f"Expected title '{deep_pool_data['title']}' not found in '{title_element.text}'"
+    
+    def verify_start_trading_now_section(self):
+        """Verifies the start trading now section contains all expected content."""
+        start_trading_data = self.data["content"]["why_multibank"]["start_trading_now"]["content"]
+        
+        # Verify start trading now section exists
+        self.assert_element(self.START_TRADING_CONTAINER)
+        
+        # Verify wrapper exists
+        self.assert_element(self.START_TRADING_WRAPPER)
+        
+        # Verify content exists
+        self.assert_element(self.START_TRADING_CONTENT)
+        
+        # Verify title
+        title_element = self.sb.find_element(self.START_TRADING_TITLE)
+        assert start_trading_data["title"] in title_element.text, f"Expected title '{start_trading_data['title']}' not found in '{title_element.text}'"
+        
+        # Verify description
+        desc_element = self.sb.find_element(self.START_TRADING_DESCRIPTION)
+        assert start_trading_data["description"] in desc_element.text, f"Expected description '{start_trading_data['description']}' not found in '{desc_element.text}'"
+        
+        # Verify button
+        button_element = self.sb.find_element(self.START_TRADING_BUTTON)
+        assert start_trading_data["button_text"] in button_element.text, f"Expected button text '{start_trading_data['button_text']}' not found in '{button_element.text}'"
+        
+        # Verify link
+        link_element = self.sb.find_element(self.START_TRADING_LINK)
+        actual_href = link_element.get_attribute("href")
+        assert start_trading_data["button_href"] in actual_href, f"Expected href '{start_trading_data['button_href']}' not found in '{actual_href}'"
