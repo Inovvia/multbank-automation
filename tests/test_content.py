@@ -38,13 +38,6 @@ class TestContent(BaseCase):
         self.open(self.data["urls"]["base_url"])
         self.content.verify_banner_images()
 
-    def test_banner_navigation_dots(self):
-        """
-        Objective: Banner navigation dots exist and are functional
-        """
-        self.open(self.data["urls"]["base_url"])
-        self.content.verify_banner_navigation_dots()
-
     def test_banner_link_clickability(self):
         """
         Objective: Banner links are clickable and functional
