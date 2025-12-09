@@ -1,7 +1,8 @@
 
 {
     "urls": {
-        "base_url": "https://trade.multibank.io/"
+        "base_url": "https://trade.multibank.io/",
+        "about_url": "https://multibank.io/about/why-multibank"
     },
     "navigation": {
         "links": [
@@ -86,6 +87,29 @@
             "fields": ["Price", "Amount", "Total"]
         },
         "categories": ["ALL", "USDT", "BTC", "FIAT"]
+    },
+    "content": {
+
+        "banners": {
+
+            "banner_selectors": {
+                "slider": ".slick-slider.style_slider__EZV_4",
+                "container": ".style_container__hCH7M",
+                "title": ".style_title__g8VH0",
+                "description": ".style_description__LFClq",
+                "link": ".style_link__qP2GD",
+                "image": ".style_image__kiucM",
+                "dots": ".style_dots__qVNOv",
+                "dot": ".style_icon-dots__Bsh7t"
+            },
+            "validation_rules": {
+                "min_banner_count": 4,
+                "min_image_count": 4,
+                "min_dot_count": 4,
+                "required_alt_text": true,
+                "required_src_attribute": true
+            }
+        }
     }
 
 }

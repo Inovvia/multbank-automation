@@ -41,3 +41,10 @@ class BasePage:
     def hover(self, selector, timeout=None):
         """Wrapper for sb.hover."""
         self.sb.hover(selector, timeout=timeout)
+
+    def select_elements(self, selector, timeout=None):
+        """Wrapper for sb.select_elements."""
+        self.sb.select_elements(selector, timeout=timeout)
+    def find_elements(self, selector):
+        """Wrapper for sb.find_elements."""
+        return self.sb.find_elements(selector)
