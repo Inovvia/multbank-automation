@@ -28,6 +28,18 @@ class Content(BasePage):
         
 
         self.BANNER_VALIDATION_RULES = self.data["content"]["banners"]["validation_rules"]
+        
+        # Card section selectors
+        self.CARD_SECTION = self.data["content"]["why_multibank"]["card_section"]["selector"]
+        self.CARD = self.data["content"]["why_multibank"]["card_section"]["card_selector"]
+        self.CARD_TITLE = self.data["content"]["why_multibank"]["card_section"]["title_selector"]
+        self.CARD_DESCRIPTION = self.data["content"]["why_multibank"]["card_section"]["description_selector"]
+        
+        # Advantages section selectors
+        self.ADVANTAGES_SECTION = self.data["content"]["why_multibank"]["advantages_section"]["selector"]
+        self.ADVANTAGES_CARD = self.data["content"]["why_multibank"]["advantages_section"]["card_selector"]
+        self.ADVANTAGES_TITLE = self.data["content"]["why_multibank"]["advantages_section"]["title_selector"]
+        self.ADVANTAGES_DESCRIPTION = self.data["content"]["why_multibank"]["advantages_section"]["description_selector"]
     
 
 
@@ -139,3 +151,49 @@ class Content(BasePage):
         """Clicks a banner link with specific text."""
         link_selector = f"{self.BANNER_LINK}:contains('{link_text}')"
         self.click(link_selector)
+    
+    def verify_card_section(self):
+        """Verifies the card section contains all expected key features."""
+        key_features = self.data["content"]["why_multibank"]["key_features"]
+        
+        # Verify card section exists
+        self.assert_element(self.CARD_SECTION)
+        
+        # Get all cards and verify their content using child elements
+        cards = self.find_elements(self.CARD)
+        assert len(cards) == len(key_features), f"Expected {len(key_features)} cards, found {len(cards)}"
+        
+        for i, feature in enumerate(key_features):
+            if i < len(cards):
+                card = cards[i]
+                
+                # Verify title within card
+                title_element = card.find_element("css selector", self.CARD_TITLE)
+                assert feature["title"] in title_element.text, f"Expected title '{feature['title']}' not found in '{title_element.text}'"
+                
+                # Verify description within card
+                desc_element = card.find_element("css selector", self.CARD_DESCRIPTION)
+                assert feature["description"] in desc_element.text, f"Expected description '{feature['description']}' not found in '{desc_element.text}'"
+    
+    def verify_advantages_section(self):
+        """Verifies the advantages section contains all expected advantages."""
+        advantages = self.data["content"]["why_multibank"]["advantages"]
+        
+        # Verify advantages section exists
+        self.assert_element(self.ADVANTAGES_SECTION)
+        
+        # Get all advantage cards and verify their content
+        cards = self.find_elements(self.ADVANTAGES_CARD)
+        assert len(cards) == len(advantages), f"Expected {len(advantages)} advantage cards, found {len(cards)}"
+        
+        for i, advantage in enumerate(advantages):
+            if i < len(cards):
+                card = cards[i]
+                
+                # Verify title within card
+                title_element = card.find_element("css selector", self.ADVANTAGES_TITLE)
+                assert advantage["title"] in title_element.text, f"Expected title '{advantage['title']}' not found in '{title_element.text}'"
+                
+                # Verify description within card
+                desc_element = card.find_element("css selector", self.ADVANTAGES_DESCRIPTION)
+                assert advantage["description"] in desc_element.text, f"Expected description '{advantage['description']}' not found in '{desc_element.text}'"

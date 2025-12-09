@@ -89,7 +89,73 @@
         "categories": ["ALL", "USDT", "BTC", "FIAT"]
     },
     "content": {
+        "why_multibank": {
+            "page_title": "Why MultiBank.io: Trusted, Regulated Global Trading Leader",
+            "meta_description": "Trusted by 17+ regulators with $322M in capital. Enjoy fast withdrawals, secure trading, and ASIC regulation for enhanced protection and stability.",
+            "hero_section": {
+                "headline": "Why MultiBank?",
+                "subheadline_selector": ".header-section_header-div__KEPqb > p:nth-child(3)",
+                "subheadline": "Since our inception, we have successfully stamped our authority in the world of trading. Along the way, we have pioneered and shaped the foreign exchange industry and continue to create exemplary products, services, and trading platforms."
+            },
+            "card_section": {
+                "selector": ".cardSection_card-container__yzQV6",
+                "card_selector": ".cardSection_card-div__vdowX",
+                "title_selector": ".cardSection_card-content__qw7Lq h2",
+                "description_selector": ".cardSection_card-content__qw7Lq h4"
+            },
+            "advantages_section": {
+                "selector": ".advantages_card-container__iF2sO",
+                "card_selector": ".advantages_card-div__cVimu",
+                "title_selector": ".advantages_card-title__h1pYV",
+                "description_selector": ".advantages_card-content__bUk_W h4"
+            },
+            "advantages": [
+                {
+                    "title": "Funds withdrawal within 24 hours",
+                    "description": "Funds withdrawal has been made easy and accessible for the benefit of our investors."
+                },
+                {
+                    "title": "Cutting-edge trading platforms",
+                    "description": "State-of-the-art trading platforms that are designed and developed to provide stability and enable real-time trading."
+                },
+                {
+                    "title": "State of the art products",
+                    "description": "Trade over 20,000 instruments including Forex, Metals, Shares, Indices, Commodities & Cryptocurrencies."
+                },
+                {
+                    "title": "Instant and stable\nnano-second execution",
+                    "description": "Zero Commission Trading.Negative Balance Protection.No requotes and No Rejections, and No Restrictions on EA."
+                },
+                {
+                    "title": "Record breaking  financial performance",
+                    "description": "With a turnover of over US$ 6.8 Trillion in 2020 (exceeding the 2023 annual turnover of US$ 15.6 Billion), we deliver results that instill confidence."
+                },
+                {
+                    "title": "Global presence in leading financial hubs",
+                    "description": "We serve an international demographic of clients in collaboration with affiliates from our 20+ offices located within the financial centers of the world."
+                }
+            ],
+            "key_features": [
+                {
+                    "title": "Heavily Regulated across 5 continents",
+                    "description": "Part of the MultiBank Group, which is closely supervised by 16 financial regulators worldwide across various jurisdictions, ensuring investor protection. The group includes companies regulated by ASIC, BaFin, FMA, TFG, AUSTRAC, VFSC, CIMA, FSC, and MAS."
+                },
+                {
+                    "title": "Paid-up capital of over $322 million",
+                    "description": "Due to our accumulated paid-up capital, we are globally recognized as one of the largest online financial derivatives providers."
+                },
+                {
+                    "title": "Regulated Spot Exchange",
+                    "description": "MEX Digital Pty Ltd, is regulated by the Australian Securities Investment Commission (ASIC) and registered as a DCE with AUSTRAC."
+                },
+                {
+                    "title": "Leverage up to 250x",
+                    "description": "We provide one of the highest levels of leverage in the market, helping traders to multiply their profits."
+                }
 
+            ]
+
+        },
         "banners": {
 
             "banner_selectors": {
