@@ -84,7 +84,8 @@
         "primary_pair": "BTC_USD",
         "order_book": {
             "fields": ["Price", "Amount", "Total"]
-        }
+        },
+        "categories": ["ALL", "USDT", "BTC", "FIAT"]
     }
 
 }

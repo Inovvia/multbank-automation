@@ -47,4 +47,36 @@ class TestTrading(BaseCase):
         self.open(self.data["urls"]["base_url"] + "trade/" + primary_pair)
         #TODO: Add chart visibility verification
 
+    def test_categories(self):
+        """
+        Objective: Verify that the categories section displays correctly
+        """
+        primary_pair = self.data["trading"]["primary_pair"]
+        self.open(self.data["urls"]["base_url"] + "trade/" + primary_pair)
+        
+        # Get categories from test data
+        categories = self.data["trading"]["categories"]
+        assert len(categories) > 0, "No categories defined in test data"
+
+        self.trading_page.open_categories()        
+        # Use JavaScript to interact with the search input directly
+        # This bypasses visibility issues
+
+        
+        for category in categories:
+            category_text = self.trading_page.select_category(category)
+            print(f"\nSelected category '{category}': {category_text}")
+            
+            
+            # Get trading pairs data from the table
+            pairs_data = self.trading_page.get_trading_pairs_data(limit=5)
+            
+            # Verify we got some pairs
+            assert len(pairs_data) > 0, f"No trading pairs found for category: {category}"
+            print(f"  Found {len(pairs_data)} trading pairs")
+            
+            # Verify structure of each pair
+            for pair in pairs_data:
+                self.trading_page.verify_trading_pair_structure(pair)
+                print(f"  [OK] {pair['pair']}: Price={pair['price']}, Change={pair['change']}% ({pair['changeDirection']})")
 
