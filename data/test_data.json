@@ -135,6 +135,47 @@
                     "description": "We serve an international demographic of clients in collaboration with affiliates from our 20+ offices located within the financial centers of the world."
                 }
             ],
+            "established_section": {
+                "selector": ".established_established-container__Ay7Z7",
+                "title_selector": ".established_title__p4nUD",
+                "description_selector": ".established_col__AIg2X p:nth-child(3)",
+                "bold_paragraph_selector": ".established_bold-paragraph__qhiu5",
+                "statistics_container": ".established_card-container__lzZAa",
+                "statistic_card_selector": ".established_card-div__fF1Jf",
+                "statistic_number_selector": ".established_card-title___nUzN p",
+                "statistic_label_selector": ".established_card-content__sDHXv h4"
+            },
+            "established_content": {
+                "title": "Multibank Group\nEstablished in 2005",
+                "description": "MultiBank Group was established in California, USA, in 2005. Since then, we have evolved into one of the largest financial derivatives providers worldwide, with a current paid-up capital of over $322 million.",
+                "bold_paragraph": "We service an extensive client-base of over 1,000,000+ customers from across 90 countries.",
+                "statistics": [
+                    {
+                        "number": "32+",
+                        "label": "Office Worldwide"
+                    },
+                    {
+                        "number": "90+",
+                        "label": "Countries & Regions"
+                    },
+                    {
+                        "number": "$15.6B",
+                        "label": "Daily Trading Volume"
+                    },
+                    {
+                        "number": "90k+",
+                        "label": "Trades per day"
+                    },
+                    {
+                        "number": "1M+",
+                        "label": "Clients Worldwide"
+                    },
+                    {
+                        "number": "Multiple",
+                        "label": "Products (CFDs, etc..)"
+                    }
+                ]
+            },
             "key_features": [
                 {
                     "title": "Heavily Regulated across 5 continents",

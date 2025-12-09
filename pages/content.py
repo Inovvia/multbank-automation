@@ -40,6 +40,16 @@ class Content(BasePage):
         self.ADVANTAGES_CARD = self.data["content"]["why_multibank"]["advantages_section"]["card_selector"]
         self.ADVANTAGES_TITLE = self.data["content"]["why_multibank"]["advantages_section"]["title_selector"]
         self.ADVANTAGES_DESCRIPTION = self.data["content"]["why_multibank"]["advantages_section"]["description_selector"]
+        
+        # Established section selectors
+        self.ESTABLISHED_SECTION = self.data["content"]["why_multibank"]["established_section"]["selector"]
+        self.ESTABLISHED_TITLE = self.data["content"]["why_multibank"]["established_section"]["title_selector"]
+        self.ESTABLISHED_DESCRIPTION = self.data["content"]["why_multibank"]["established_section"]["description_selector"]
+        self.ESTABLISHED_BOLD_PARAGRAPH = self.data["content"]["why_multibank"]["established_section"]["bold_paragraph_selector"]
+        self.ESTABLISHED_STATISTICS_CONTAINER = self.data["content"]["why_multibank"]["established_section"]["statistics_container"]
+        self.ESTABLISHED_STATISTIC_CARD = self.data["content"]["why_multibank"]["established_section"]["statistic_card_selector"]
+        self.ESTABLISHED_STATISTIC_NUMBER = self.data["content"]["why_multibank"]["established_section"]["statistic_number_selector"]
+        self.ESTABLISHED_STATISTIC_LABEL = self.data["content"]["why_multibank"]["established_section"]["statistic_label_selector"]
     
 
 
@@ -197,3 +207,39 @@ class Content(BasePage):
                 # Verify description within card
                 desc_element = card.find_element("css selector", self.ADVANTAGES_DESCRIPTION)
                 assert advantage["description"] in desc_element.text, f"Expected description '{advantage['description']}' not found in '{desc_element.text}'"
+    
+    def verify_established_section(self):
+        """Verifies the established section contains all expected content."""
+        established_content = self.data["content"]["why_multibank"]["established_content"]
+        
+        # Verify established section exists
+        self.assert_element(self.ESTABLISHED_SECTION)
+        
+        # Verify title
+        title_element = self.sb.find_element(self.ESTABLISHED_TITLE)
+        assert established_content["title"] in title_element.text, f"Expected title '{established_content['title']}' not found in '{title_element.text}'"
+        
+        # Verify description
+        desc_element = self.sb.find_element(self.ESTABLISHED_DESCRIPTION)
+        assert established_content["description"] in desc_element.text, f"Expected description '{established_content['description']}' not found in '{desc_element.text}'"
+        
+        # Verify bold paragraph
+        bold_element = self.sb.find_element(self.ESTABLISHED_BOLD_PARAGRAPH)
+        assert established_content["bold_paragraph"] in bold_element.text, f"Expected bold paragraph '{established_content['bold_paragraph']}' not found in '{bold_element.text}'"
+        
+        # Verify statistics cards
+        statistics = established_content["statistics"]
+        cards = self.find_elements(self.ESTABLISHED_STATISTIC_CARD)
+        assert len(cards) == len(statistics), f"Expected {len(statistics)} statistic cards, found {len(cards)}"
+        
+        for i, statistic in enumerate(statistics):
+            if i < len(cards):
+                card = cards[i]
+                
+                # Verify number within card
+                number_element = card.find_element("css selector", self.ESTABLISHED_STATISTIC_NUMBER)
+                assert statistic["number"] in number_element.text, f"Expected number '{statistic['number']}' not found in '{number_element.text}'"
+                
+                # Verify label within card
+                label_element = card.find_element("css selector", self.ESTABLISHED_STATISTIC_LABEL)
+                assert statistic["label"] in label_element.text, f"Expected label '{statistic['label']}' not found in '{label_element.text}'"

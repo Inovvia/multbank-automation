@@ -82,3 +82,6 @@ class TestContent(BaseCase):
         
         # Check advantages section
         self.content.verify_advantages_section()
+        
+        # Check established section
+        self.content.verify_established_section()
