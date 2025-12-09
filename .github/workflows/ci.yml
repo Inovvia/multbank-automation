@@ -45,7 +45,6 @@ jobs:
           xvfb-run -a uv run pytest \
             --browser=${{ matrix.browser }} \
             --uc \
-            --swap-cdp \
             --incognito \
             --disable-csp \
             --junitxml=test-results-${{ matrix.browser }}.xml \
