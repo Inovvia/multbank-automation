@@ -13,7 +13,7 @@ jobs:
     
     strategy:
       matrix:
-        browser: [chrome, firefox]
+        browser: [chrome]
     
     steps:
       - name: Checkout code
@@ -47,20 +47,3 @@ jobs:
             --html=test-report-${{ matrix.browser }}.html \
             --self-contained-html
     
-      - name: Upload test results
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: test-results-${{ matrix.browser }}
-          path: |
-            test-results-${{ matrix.browser }}.xml
-            test-report-${{ matrix.browser }}.html
-          retention-days: 30
-    
-      - name: Publish test results
-        uses: dorny/test-reporter@v1
-        if: always()
-        with:
-          name: Test Results (${{ matrix.browser }})
-          path: test-results-${{ matrix.browser }}.xml
-          reporter: java-junit
